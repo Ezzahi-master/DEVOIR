@@ -1,0 +1,36 @@
+@baseUrl = http://local
+host:3002/api
+
+### Register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "test123"
+}
+
+### Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "test123"
+}
+
+### Get all books (requires auth)
+GET {{baseUrl}}/books
+Authorization: Bearer {{token}}
+
+### Create a book
+POST {{baseUrl}}/books
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Sample Book",
+  "author": "John Doe",
+  "isbn": "1234567890",
+  "publishedYear": 2023
+}
